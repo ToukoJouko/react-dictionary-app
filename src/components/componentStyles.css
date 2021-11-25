@@ -1,0 +1,171 @@
+/*Search form*/
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.title_text {
+  margin-left: 10px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.input {
+  width: 20%;
+  height: 40px;
+  padding: 12px;
+  font-family: "Kanit", sans-serif;
+  font-size: large;
+  font-weight: bold;
+  outline: none;
+  border-style: solid;
+  border-right: none;
+  border-width: 5px;
+  border-radius: 20px 0 0 20px;
+  border-color: #e27d60;
+}
+
+.button {
+  height: 40px;
+  width: 3%;
+  border-style: solid;
+  border-left: none;
+  border-width: 5px;
+  border-radius: 0 20px 20px 0;
+  border-color: #e27d60;
+  background-color: white;
+}
+
+button :hover {
+  color: #e8a87c;
+  cursor: pointer;
+}
+
+/* Word of the day card*/
+.wotdCard_bg {
+  background-color: #e8a87c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.wotd_title {
+  font-size: 40px;
+}
+
+.wotd_date {
+  font-size: 25px;
+}
+
+.wotd {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* Word info */
+.word_info {
+  background-color: #e27d60;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.word {
+  font-size: 50px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.pronounciation {
+  font-size: 30px;
+  color: #404040;
+  margin-right: 20px;
+  padding-top: 7px;
+}
+
+.audio {
+  padding-top: 5px;
+}
+
+/* Definition card*/
+.definition_card {
+  background-color: #e8a87c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.part {
+  font-size: 30px;
+}
+
+.definition {
+  font-size: 20px;
+}
+
+/* Synonym list */
+.synonym_list {
+  background-color: #c38d9e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 110px;
+}
+
+.synonym_title {
+  font-size: 30px;
+}
+
+.synonym {
+  font-size: 20px;
+}
+
+/* Link and logos */
+.link_and_logos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.git_logo,
+.book_link {
+  color: black;
+}
+
+.git_logo:hover,
+.book_link:hover {
+  color: #e27d60;
+}
