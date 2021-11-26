@@ -4,7 +4,7 @@ const LinkAndLogo = () => {
   return (
     <div className="link_and_logos">
       <a
-        href="https://github.com/ToukoJouko/simple-react-weatherapp"
+        href="https://github.com/ToukoJouko/react-dictionary-app"
         target="_blank"
         rel="noopener noreferrer"
       >

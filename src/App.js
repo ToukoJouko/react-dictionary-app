@@ -151,7 +151,9 @@ const App = () => {
       {showError ? (
         <ErrorMessage message={errorMessage} />
       ) : (
-        <BeatLoader loading={loading} />
+        <div className="loader">
+          <BeatLoader loading={loading} />
+        </div>
       )}
       {/*
       <button onClick={handleRandom}>random</button>
@@ -159,7 +161,9 @@ const App = () => {
       {!loading && showWotdCard ? (
         <WotdCard wotd={wordOfTheDay} />
       ) : (
-        <BeatLoader loading={loading} />
+        <div className="loader">
+          <BeatLoader loading={loading} />
+        </div>
       )}
       {!loading && showWordData ? (
         <div>
@@ -182,7 +186,9 @@ const App = () => {
           </div>
         </div>
       ) : (
-        <BeatLoader loading={loading} />
+        <div className="loader">
+          <BeatLoader loading={loading} />
+        </div>
       )}
       <LinkAndLogo />
     </div>

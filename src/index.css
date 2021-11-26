@@ -25,3 +25,8 @@ html {
   justify-content: center;
   align-items: center;
 }
+
+.loader {
+  position: absolute;
+  bottom: 50%;
+}
