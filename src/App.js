@@ -63,20 +63,22 @@ const App = () => {
     });
   };
 
-  //this function finds the synonym category from the fetched data
-  const findSynonyms = (category) => {
-    return category.relationshipType === "synonym";
-  };
-
+  /*
   //get list of synonyms
   const getSynonyms = (word) => {
-    const synonymUrl = `https://api.wordnik.com/v4/word.json/${word}/relatedWords?useCanonical=false&limitPerRelationshipType=10&api_key=${API_KEY}`;
+    const synonymUrl = `https://api.wordnik.com/v4/word.json/${word}/relatedWords?useCanonical=false&relationshipTypes=synonym&limitPerRelationshipType=10&api_key=${API_KEY}`;
 
-    axios.get(synonymUrl).then((response) => {
-      //console.log(response.data.find(findSynonyms).words);
-      setSynonyms(response.data.find(findSynonyms).words);
-    });
+    axios
+      .get(synonymUrl)
+      .then((response) => {
+        console.log(response);
+        setSynonyms(response.data[0].words);
+      })
+      .catch((err) => {
+        setErrorMessage(":DD");
+      });
   };
+  */
 
   //get other data
   const getWordData = (word) => {
@@ -86,21 +88,24 @@ const App = () => {
     const audioRequest = axios.get(
       `https://api.wordnik.com/v4/word.json/${word}/audio?useCanonical=false&limit=50&api_key=${API_KEY}`
     );
+    const synonymRequest = axios.get(
+      `https://api.wordnik.com/v4/word.json/${word}/relatedWords?useCanonical=false&relationshipTypes=synonym&limitPerRelationshipType=10&api_key=${API_KEY}`
+    );
+
     axios
-      .all([audioRequest, pronRequest])
+      .all([audioRequest, pronRequest, synonymRequest])
       .then(
-        axios.spread(function (audioRes, pronRes) {
-          //console.log(definitionRes.data);
-          //console.log(audioRes.data);
+        axios.spread(function (audioRes, pronRes, synonymRes) {
           setWordData({
-            //definition: [definitionRes.data],
             word: audioRes.data[1].word,
             audio: audioRes.data[1].fileUrl,
             pronounciation: pronRes.data[0].raw,
           });
+          setSynonyms(synonymRes.data[0].words);
         })
       )
       .catch((error) => {
+        console.log(error.response);
         //console.log(error.response.status);
         setLoading(false);
         setShowWotdCard(false);
@@ -118,20 +123,6 @@ const App = () => {
       });
   };
 
-  /*  
-  const handleRandom = (event) => {
-    event.preventDefault();
-    const randomUrl = `https://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=true&minCorpusCount=10000&maxCorpusCount=-1&minDictionaryCount=7&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=${API_KEY}`;
-    axios.get(randomUrl).then((response) => {
-      console.log(response.data);
-      getWordData(response.data.word);
-      getDefinitions(response.data.word);
-      getSynonyms(response.data.word);
-      setShowWordData(true);
-    });
-  };
-*/
-
   const handleChange = (event) => {
     setWord(event.target.value);
   };
@@ -143,7 +134,6 @@ const App = () => {
     setErrorMessage(null);
     getWordData(word);
     getDefinitions(word);
-    getSynonyms(word);
     setShowWordData(true);
   };
 
@@ -161,9 +151,6 @@ const App = () => {
           <BeatLoader loading={loading} />
         </div>
       )}
-      {/*
-      <button onClick={handleRandom}>random</button>
-      */}
       {!loading && showWotdCard ? (
         <WotdCard
           wotd={wordOfTheDay.word}
