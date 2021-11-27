@@ -1,3 +1,7 @@
+DEMO: https://dictionary---app.herokuapp.com/
+
+![image](https://user-images.githubusercontent.com/72581705/143722457-7f99eab3-dbb5-4398-abf1-1b610c32c586.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
