@@ -12,7 +12,10 @@ import "./components/componentStyles.css";
 
 const App = () => {
   const [word, setWord] = useState("");
-  const [wordOfTheDay, setWordOfTheDay] = useState("");
+  const [wordOfTheDay, setWordOfTheDay] = useState({
+    word: "",
+    definition: "",
+  });
   const [synonyms, setSynonyms] = useState([]);
   const [wordDefinitions, setwordDefinitions] = useState([]);
   const [wordData, setWordData] = useState({
@@ -40,7 +43,10 @@ const App = () => {
         //console.log(response.data);
         setLoading(false);
         setShowWotdCard(true);
-        setWordOfTheDay(response.data.word);
+        setWordOfTheDay({
+          word: response.data.word,
+          definition: response.data.definitions[0].text,
+        });
       });
   }, [API_KEY]);
 
@@ -107,7 +113,7 @@ const App = () => {
             "Too many API calls! Please wait for a moment and try again."
           );
         } else {
-          setErrorMessage(`Data for the word '${word}' cannot not be found`);
+          setErrorMessage(`Data for the word '${word}' cannot not be found!`);
         }
       });
   };
@@ -159,7 +165,10 @@ const App = () => {
       <button onClick={handleRandom}>random</button>
       */}
       {!loading && showWotdCard ? (
-        <WotdCard wotd={wordOfTheDay} />
+        <WotdCard
+          wotd={wordOfTheDay.word}
+          definition={wordOfTheDay.definition}
+        />
       ) : (
         <div className="loader">
           <BeatLoader loading={loading} />

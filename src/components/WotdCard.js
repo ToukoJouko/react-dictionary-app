@@ -12,6 +12,7 @@ const WotdCard = (props) => {
       <div className="wotd_title">WORD OF THE DAY</div>
       <div className="wotd_date">{currentDate}</div>
       <div className="wotd">{props.wotd}</div>
+      <div className="wotd_definition">{props.definition}</div>
     </div>
   );
 };

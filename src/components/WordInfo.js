@@ -8,6 +8,9 @@ const WordInfo = (props) => {
       <div className="audio">
         <audio controls src={props.audioUrl} type="audio/mpeg"></audio>
       </div>
+      <a className="synonym_link" href="#synonym_list">
+        Synonyms
+      </a>
     </div>
   );
 };

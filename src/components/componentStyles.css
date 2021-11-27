@@ -81,6 +81,10 @@ button :hover {
   font-weight: bold;
 }
 
+.wotd_definition {
+  font-size: 20px;
+}
+
 /* Word info */
 .word_info {
   background-color: #e27d60;
@@ -107,6 +111,17 @@ button :hover {
 
 .audio {
   padding-top: 5px;
+  margin-right: 20px;
+}
+
+.synonym_link {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.synonym_link:hover {
+  color: #e8a87c;
 }
 
 /* Definition card*/
@@ -149,6 +164,16 @@ button :hover {
   font-size: 20px;
 }
 
+.start_link {
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+}
+
+.start_link:hover {
+  color: #e8a87c;
+}
+
 /* Link and logos */
 .link_and_logos {
   display: flex;
@@ -169,4 +194,12 @@ button :hover {
 .git_logo:hover,
 .book_link:hover {
   color: #e27d60;
+}
+
+/* Error messages */
+.message {
+  color: #b80000;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
 }

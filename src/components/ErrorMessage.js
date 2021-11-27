@@ -5,7 +5,7 @@ const ErrorMessage = ({ message }) => {
     return null;
   }
 
-  return <div>{message}</div>;
+  return <div className="message">{message}</div>;
 };
 
 export default ErrorMessage;

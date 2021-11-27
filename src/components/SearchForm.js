@@ -13,6 +13,7 @@ const SearchForm = (props) => {
       <form className="form" onSubmit={props.searchWord}>
         <input
           className="input"
+          placeholder="Search by a word..."
           value={props.word}
           onChange={props.handleChange}
         />
